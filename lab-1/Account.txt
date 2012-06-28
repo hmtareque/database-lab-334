@@ -1,0 +1,20 @@
+create table branch
+(
+  Branch_name varchar2(10),
+  Account_number varchar2(8),
+  balance number
+);
+
+insert into branch values ('Downtown','A-101',500);
+
+insert into branch values ('Mianus','A-215',700);
+
+insert into branch values ('Perryridge','A-102',400);
+
+insert into branch values ('Round Hill','A-305',350);
+
+insert into branch values ('Brighton','A-201',900);
+
+insert into branch values ('Redwood','A-222',700);
+
+insert into branch values ('Brighton','A-217',750);
