@@ -1,0 +1,22 @@
+create table branch
+(
+  Branch_name varchar2(10),
+  Branch_city varchar2(10),
+  Assets number
+);
+
+insert into branch values ('Downtown','Brooklyn',9000);
+
+insert into branch values ('Redwood','Palo Alto',2100);
+
+insert into branch values ('Perryridge','Horseneck',1700);
+
+insert into branch values ('Mianus','Horseneck',4000);
+
+insert into branch values ('Round Hill','Horseneck',8000);
+
+insert into branch values ('Pownal','Bennigton',3000);
+
+insert into branch values ('North Town','Rye',3700);
+
+insert into branch values ('Brighton','Brooklyn',7100);
