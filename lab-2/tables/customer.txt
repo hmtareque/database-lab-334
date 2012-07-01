@@ -1,0 +1,29 @@
+create table customer
+( Customer_name varchar2(15), 
+  Customer_street varchar2(15),
+  Customer_city varchar2(15),
+  primary key (Customer_name)
+);
+
+insert into customer values ('Adams','Spring','Pittsfield');
+
+insert into customer values ('Brooks','Senator','Brooklyn');
+
+insert into customer values ('Curry','North','Rye');
+
+insert into customer values ('Glenn','Sand Hill','Woodside');
+
+insert into customer values ('Green','Walnut','Stamford');
+
+insert into customer values ('Hayes','Main','Harrison');
+
+insert into customer values ('Johnson','Alma','Palo Alto');
+
+insert into customer values ('Jones','Main','Harrison');
+
+insert into customer values ('Smith','Main','Rye');
+
+insert into customer values ('Turner','Putnam','Stamford');
+
+insert into customer values ('Williams','Nassau','Princeton');
+
