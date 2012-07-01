@@ -1,0 +1,22 @@
+create table depositor
+( 
+  Customer_name varchar2(15), 
+  account_number varchar2(8),
+  primary key (account_number)
+);
+
+insert into depositor values ('Johnson','A-101');
+
+insert into depositor values ('Smith','A-215');
+
+insert into depositor values ('Hayes','A-102');
+
+insert into depositor values ('Turner','A-305');
+
+insert into depositor values ('Johnson','A-201');
+
+insert into depositor values ('Jones','A-217');
+
+insert into depositor values ('Lindsay','A-222');
+
+
