@@ -1,0 +1,5 @@
+select borrower.customer_name, customer.customer_city
+from customer, loan, borrower
+where loan.loan_number = borrower.loan_number and
+borrower.customer_name = customer.customer_name
+and branch_name = 'Perryridge'
