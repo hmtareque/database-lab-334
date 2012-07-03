@@ -1,0 +1,3 @@
+select borrower.customer_name, customer_city
+from customer, borrower
+where borrower.customer_name = customer.customer_name;
