@@ -1,0 +1,5 @@
+select borrower.Customer_name, customer.Customer_city
+from borrower, customer
+where Loan_number in (select loan_number from loan where Branch_name = 'Perryridge')
+and
+borrower.Customer_name=customer.Customer_name;
