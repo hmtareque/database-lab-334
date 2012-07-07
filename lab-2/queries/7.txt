@@ -1,0 +1,4 @@
+select borrower.customer_name, customer.customer_city
+from borrower, customer
+where
+borrower.Customer_name = customer.Customer_name;
