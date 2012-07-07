@@ -1,0 +1,6 @@
+select customer_name
+from depositor
+where account_number in ( select account_number from account 
+where branch_name = (select branch_name from account 
+where account_number in (select account_number from depositor 
+where customer_name ='Hayes')));
