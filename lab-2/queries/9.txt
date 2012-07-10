@@ -1,0 +1,5 @@
+select branch_name
+from branch
+where asstes > (select min(asstes)
+from branch
+where branch_city='Brooklyn');
