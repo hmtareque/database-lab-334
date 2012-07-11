@@ -1,0 +1,4 @@
+select branch_name
+from branch
+where asstes > all ( select asstes from branch where 
+branch_city = 'Brooklyn');
