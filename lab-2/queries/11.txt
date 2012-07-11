@@ -1,0 +1,7 @@
+select customer_name
+from depositor
+where account_number in ( select account_number from account where branch_name = 'Perryridge')
+union
+select customer_name
+from borrower
+where loan_number in ( select loan_number from loan where branch_name = 'Perryridge');
