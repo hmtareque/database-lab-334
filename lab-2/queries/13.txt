@@ -1,0 +1,4 @@
+select customer_name
+from depositor, account
+where account.account_number = depositor.account_number and branch_name = 'Perryridge'
+order by customer_name;
