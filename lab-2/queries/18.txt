@@ -1,0 +1,4 @@
+select branch_name, avg (balance)
+from account
+group by branch_name
+having count(account_number)>=1 and avg (balance) > 700;
