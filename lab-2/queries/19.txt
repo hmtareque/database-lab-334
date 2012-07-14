@@ -1,0 +1,4 @@
+select branch_name from account
+group by branch_name
+having avg(balance) >= all(select avg(balance)
+from account group by branch_name);
