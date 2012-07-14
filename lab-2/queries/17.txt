@@ -1,0 +1,3 @@
+select account_number, avg (balance)
+from account
+group by account_number;
