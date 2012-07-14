@@ -1,0 +1,5 @@
+select branch_name, count(distinct customer_name)
+from account, depositor
+where depositor.account_number = account.account_number
+group by branch_name
+having count(distinct depositor.account_number) >=1;
