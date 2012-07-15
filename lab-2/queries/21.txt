@@ -1,0 +1,9 @@
+select depositor.customer_name, avg(balance)
+from depositor, account, customer
+where depositor.account_number = account.account_number
+and
+depositor.customer_name = customer.customer_name
+and
+customer_city = 'Harrison'
+group by depositor.customer_name
+having count(depositor.account_number)>=2;
