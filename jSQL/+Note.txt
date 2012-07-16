@@ -1,0 +1,25 @@
+The code here are full completed. Copy the whole code into the pl/sql worksheet & then press F5. The table is also created in PL/SQL.
+
+All Programs are done mainly by using CursorFor loop. For further detail see 
+'page-502' from the book "Oracle 9i The complete reference".
+
+
+QUESTION:-
+~~~~~~~~~~
+
+1. Find Odd-Even
+2. Fibonacci Number
+3. Is Prime
+4. n-th prime
+5. Factorial
+6. Addition of Series.
+	e.g. n+ (n+1) + (n+2) + .... + (n+m) = ? for given n & m
+7. Take input from a table containing number 1 to 50. insert into another table by    adding from 1 to input.
+8. Store square from 1 to 50.
+9. Store square root from 1 to 1000.
+10. Take input from a table if the input is odd/even then find the sum of all odd       or even to less then the input.
+11. Take a centrigate scale reading & convert into fahrenhite scale & store.
+12. Take input from a table containing a trianle base & perpendicular arm to base. Now find the area & store it over another table.
+
+
+
