@@ -1,0 +1,44 @@
+create table input_tab(
+	position number,	
+	num number
+);
+commit;
+
+insert into input_tab values(1,5);
+insert into input_tab values(2,-143);
+insert into input_tab values(3,50);
+insert into input_tab values(4,49);
+insert into input_tab values(5,25);
+insert into input_tab values(6,22);
+insert into input_tab values(7,0);
+insert into input_tab values(8,15);
+insert into input_tab values(9,21);
+insert into input_tab values(10,18);
+insert into input_tab values(11,9);
+commit;
+
+create table output_tab(
+	position number,
+	num number,
+	result varchar2(20)
+);
+commit;
+
+
+declare
+  cursor val_cursor is
+    select * from input_tab;
+    
+begin
+  for val in val_cursor
+    loop
+      if( val.num mod 2 = 0 ) then
+        insert into output_tab values(val.position,val.num,'EVEN.');
+      	commit;
+      else
+        insert into output_tab values(val.position,val.num,'ODD.');
+      	commit;
+      end if;
+    end loop;
+      
+end;
