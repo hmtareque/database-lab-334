@@ -1,0 +1,31 @@
+create table fib_tab(
+	position number,
+	fib_num number
+);
+commit;
+
+declare
+  inc number;
+  x number;
+  y number;
+  z number;
+    
+begin
+  x := 0;
+  y := 1;
+  z := x+y;  
+  insert into fib_tab values(0,x);
+  insert into fib_tab values(1,y);
+  inc := 2;
+  
+  while inc <= 10
+    loop
+      insert into fib_tab values(inc,z);
+      commit;
+      inc := inc+1;
+      x := y;
+      y := z;
+      z := x+y;
+    end loop;
+end;
+
