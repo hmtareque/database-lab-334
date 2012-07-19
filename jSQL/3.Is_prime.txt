@@ -1,0 +1,62 @@
+create table prime_in(
+	position number,	
+	num number
+);
+commit;
+
+insert into prime_in values(1,2);
+insert into prime_in values(2,1);
+insert into prime_in values(3,0);
+insert into prime_in values(4,23);
+insert into prime_in values(5,21);
+insert into prime_in values(6,49);
+insert into prime_in values(7,100);
+insert into prime_in values(8,999999);
+insert into prime_in values(9,92371);
+insert into prime_in values(10,11);
+insert into prime_in values(11,5);
+insert into prime_in values(12,7);
+commit;
+
+create table prime_out(
+	position number,
+	num number,
+	Is_Prime varchar2(20)
+);
+commit;
+
+
+
+
+declare
+  inc number;
+  flag number;
+  cursor val_cursor is select * from prime_in;
+    
+begin
+  for val in val_cursor
+  loop
+        inc := 2;
+        flag := 1;
+      
+        if(val.num < 2) then
+          insert into prime_out values(val.position,val.num,'Not Prime.');
+          flag := 0;
+        end if;
+        
+        while inc <= sqrt(val.num)
+        loop  
+            if( val.num mod inc = 0 ) then
+              insert into prime_out values(val.position,val.num,'Not Prime.');
+              flag := 0;
+              exit;
+            end if;
+            inc := inc+1;
+        end loop;
+      
+        if( flag = 1 ) then
+          insert into prime_out values(val.position,val.num,'Prime.');       
+        end if;
+    
+  end loop;
+end;
