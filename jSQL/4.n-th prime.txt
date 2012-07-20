@@ -1,0 +1,71 @@
+create table prime_in(
+	position number,	
+	num number
+);
+commit;
+insert into prime_in values(1,1);
+insert into prime_in values(2,2);
+insert into prime_in values(3,3);
+insert into prime_in values(4,4);
+insert into prime_in values(5,5);
+insert into prime_in values(6,6);
+insert into prime_in values(7,7);
+insert into prime_in values(8,8);
+insert into prime_in values(9,9);
+insert into prime_in values(10,10);
+insert into prime_in values(11,14);
+insert into prime_in values(12,15);
+commit;
+
+create table prime_out(
+	Position number,
+	Prime_No number,
+	Prime_Number number
+);
+commit;
+
+
+declare
+  i number;
+  num number;
+  flag number;
+  tot number;
+  cursor val_cursor is select * from prime_in;
+    
+begin
+  for val in val_cursor
+  loop
+        tot := 1;
+        num := 2;
+        
+        while tot<val.num  
+        loop  
+          i := 2;
+          flag := 1;
+          num := num + 1;
+          
+          while i <= sqrt(num)
+          loop  
+          
+            if( num mod i = 0 ) then
+              flag := 0;
+              exit;
+            end if;
+
+            i := i+1;
+          end loop;
+      
+          if( flag = 1 ) then
+            tot := tot+1;       
+          end if;
+          
+        end loop;
+
+        if( val.num = 1 ) then
+          insert into prime_out values(val.position,val.num,2);       
+        else
+          insert into prime_out values(val.position,val.num,num);        
+        end if;
+        
+  end loop;
+end;
