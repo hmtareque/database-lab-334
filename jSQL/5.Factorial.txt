@@ -1,0 +1,52 @@
+create table fact_in(
+	position number,	
+	num number
+);
+commit;
+
+insert into fact_in values(1,2);
+insert into fact_in values(2,3);
+insert into fact_in values(3,4);
+insert into fact_in values(4,5);
+insert into fact_in values(5,6);
+insert into fact_in values(6,8);
+insert into fact_in values(7,10);
+insert into fact_in values(8,0);
+insert into fact_in values(9,1);
+insert into fact_in values(10,7);
+insert into fact_in values(11,9);
+commit;
+
+create table fact_out(
+	position number,
+	num number,
+	factorial number
+);
+commit;
+
+
+declare
+  i number;
+  num number;
+  cursor val_cursor is
+    select * from fact_in;
+    
+begin
+  for val in val_cursor
+  loop
+      if( val.num <= 1 ) then
+        insert into fact_out values(val.position,val.num,1);
+      else
+        i := 2;  
+        num := 1;
+        
+        while i<=val.num
+        loop
+          num := num*i;
+          i := i+1;
+        end loop;
+        insert into fact_out values(val.position,val.num,num);
+      end if;
+  end loop;    
+  commit;
+end;
