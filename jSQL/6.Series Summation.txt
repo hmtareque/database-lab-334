@@ -1,0 +1,45 @@
+create table sum_in(
+	position number,	
+	n number,
+	m number
+);
+commit;
+
+insert into sum_in values(1,2,2);
+insert into sum_in values(2,0,5);
+insert into sum_in values(3,-4,0);
+insert into sum_in values(4,-5,4);
+insert into sum_in values(5,6,15);
+insert into sum_in values(6,8,10);
+insert into sum_in values(7,11,100);
+insert into sum_in values(8,0,9);
+insert into sum_in values(9,1,9);
+insert into sum_in values(10,8,10);
+commit;
+
+create table sum_out(
+	position number,
+	n number,
+	m number,
+	sum number
+);
+commit;
+
+
+declare
+  x number;
+  y number;
+  num number;
+  cursor val_cursor is
+    select * from sum_in;
+    
+begin
+  for val in val_cursor
+  loop
+    x := val.n;
+    y := val.n + val.m;
+    num := ( (y*(y+1)) - (x*(x-1)) ) / 2;
+    insert into sum_out values(val.position,val.n,val.m,num);  
+  end loop;    
+  commit;
+end;
