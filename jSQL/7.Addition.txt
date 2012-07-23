@@ -1,0 +1,33 @@
+create table sum_in(
+	position number,	
+	num number
+);
+commit;
+
+insert into sum_in values(1,2);
+insert into sum_in values(2,5);
+insert into sum_in values(3,15);
+insert into sum_in values(4,4);
+insert into sum_in values(5,15);
+insert into sum_in values(6,10);
+insert into sum_in values(7,100);
+insert into sum_in values(8,9);
+
+create table sum_out(
+	position number,
+	num number,
+	summation number
+);
+
+
+declare
+  cursor val_cursor is
+    select * from sum_in;
+    
+begin
+  for val in val_cursor
+  loop
+    insert into sum_out values( val.position, val.num, ( (val.num * ( val.num + 1 )) /2 ) );  
+  end loop;    
+  commit;
+end;
