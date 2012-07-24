@@ -1,0 +1,18 @@
+create table square_out(
+	Num number,
+	Square number
+);
+commit;
+
+declare
+  i number;
+    
+begin
+  i := 1;
+  while i<=50
+  loop
+      insert into square_out values( i, i*i ); 
+      i := i+1; 
+  end loop;    
+  commit;
+end;
