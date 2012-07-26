@@ -1,0 +1,33 @@
+create table cen_in(
+	position number,	
+	temp number
+);
+commit;
+
+insert into cen_in values(1,32);
+insert into cen_in values(2,100);
+insert into cen_in values(3,0);
+insert into cen_in values(4,4);
+insert into cen_in values(5,1);
+insert into cen_in values(6,10);
+insert into cen_in values(7,100);
+insert into cen_in values(8,15.6);
+
+create table fahren_out(
+	position number,
+	Centigrate number,
+	Fahrenheit number
+);
+
+
+declare
+  cursor val_cursor is
+    select * from cen_in;
+    
+begin
+  for val in val_cursor
+  loop
+    insert into fahren_out values( val.position, val.temp, (32+((val.temp*9)/5))); 
+  end loop;    
+  commit;
+end;
