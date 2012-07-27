@@ -1,0 +1,35 @@
+create table tri_in(
+        position number,
+	base number,	
+	arm number
+);
+commit;
+
+insert into tri_in values(1,1,2);
+insert into tri_in values(2,2,3);
+insert into tri_in values(3,3,4);
+insert into tri_in values(4,4,5);
+insert into tri_in values(5,5,6);
+insert into tri_in values(6,6,7);
+insert into tri_in values(7,7,8);
+insert into tri_in values(8,8,9);
+
+create table tri_out(
+	position number,
+	base number,	
+	arm number,
+        area number
+);
+
+
+declare
+  cursor val_cursor is
+    select * from tri_in;
+    
+begin
+  for val in val_cursor
+  loop
+    insert into tri_out values( val.position, val.base,val.arm,((val.base*val.arm)/2)); 
+  end loop;    
+  commit;
+end;
